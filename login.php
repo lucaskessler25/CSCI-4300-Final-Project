@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	unset($_SESSION['id']);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -14,9 +18,9 @@
 		
 		<!-- your HTML output follows -->
 		
-		<form action="signup-submit.php" method="post">
+		<form action="login-submit.php" method="post">
 		<fieldset>
-		<legend>New User Signup:</legend>
+		<legend>Sign in:</legend>
 			<div style="margin-bottom:10px;">
 				<strong>User name:</strong>
 				<input type="text" name="username" maxlength="16">
@@ -30,6 +34,8 @@
 		</fieldset>
 		</form>
 
-		Already signed up? <a href="login.html">Log in.</a>
+		<p>Not already signed up? <a href="signup.php">Sign up.</a></p>
+		<p><a href="index.php">Back to front page</a></p>
+		
 	</body>
 </html>

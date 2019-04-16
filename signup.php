@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-
-	<!-- shared page top HTML -->
 	
 	<head>
 		<title>Field to Farm - Signup</title>
@@ -12,11 +10,9 @@
 			<h1> Field to Farm </h1>
 		</div>
 		
-		<!-- your HTML output follows -->
-		
-		<form action="login-submit.php" method="post">
+		<form action="signup-submit.php" method="post">
 		<fieldset>
-		<legend>Sign in:</legend>
+		<legend>New User Signup:</legend>
 			<div style="margin-bottom:10px;">
 				<strong>User name:</strong>
 				<input type="text" name="username" maxlength="16">
@@ -30,6 +26,7 @@
 		</fieldset>
 		</form>
 
-		Not already signed up? <a href="signup.html">Sign up.</a>
+		<p>Already signed up? <a href="login.php">Log in.</a></p>
+		<p><a href="index.php">Back to front page</a></p>
 	</body>
 </html>

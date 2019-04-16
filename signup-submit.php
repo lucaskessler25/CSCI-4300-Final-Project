@@ -19,7 +19,7 @@
 	
 	if($row['num'] > 0) {
 		echo "<h1> Error: Username already exists. Please try again </h1>";
-		echo "<p> <a href='signup.html'> Click here to try again. </a>";
+		echo "<p> <a href='signup.php'> Click here to try again. </a>";
 	} else {
 		$sql = "INSERT INTO users (ID, Username, Password) VALUES (:id, :username, :password)";
 		$stmt = $pdo->prepare($sql);
@@ -31,6 +31,6 @@
 
 		echo "<h1> User has been successfully created! </h1>";
 		echo "<p> Congratulations on creating a new account.
-		<a href='login.html'> click here </a> to go ahead and log in. </p>";		
+		<a href='login.php'> click here </a> to go ahead and log in. </p>";		
 	}		
 ?>

@@ -25,8 +25,22 @@
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute([
 			'id' => NULL,
-			'username' => $_POST['username'],
+			'username' => strtolower($_POST['username']),
 			'password' => $_POST['password'],
+		]);
+		
+		$sql = "SELECT ID FROM users WHERE Username = :username AND Password = :password";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([
+			'username' => strtolower($_POST['username']),
+			'password' => $_POST['password'],
+		]);
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		$sql = "INSERT INTO `userinfo` (`ID`, `piclocation`, `description`, `name`) VALUES (:id, '', '', '')";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([
+			'id' => $row['ID'],
 		]);
 
 		echo "<h1> User has been successfully created! </h1>";

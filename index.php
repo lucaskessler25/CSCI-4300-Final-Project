@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-<header>
-<title>Field to Table</title>
-</header>
+<head>
+	<title>Field to Farm - Signup</title>
+	<meta charset="utf-8" />
+</head>
 
 <?php
 	session_start();
@@ -21,7 +22,8 @@
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		echo "<h1>Welcome, " . $row['Username'] . "!</h1>
-		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>";
+		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>
+		<button type='button' onclick='window.location.href=\"profile.php\"'>View Profile</button>";
 	} else {
 		echo '<h1>Welcome to Field to Table!</h1>
 			<p>New User? <a href="signup.php">Sign up.</a> </p>

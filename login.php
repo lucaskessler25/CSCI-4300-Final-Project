@@ -8,12 +8,12 @@
 	<!-- shared page top HTML -->
 	
 	<head>
-		<title>Field to Farm - Signup</title>
+		<title>Field to Table - Signup</title>
 	</head>
 
 	<body>
 		<div>
-			<h1> Field to Farm </h1>
+			<h1> Field to Table </h1>
 		</div>
 		
 		<!-- your HTML output follows -->

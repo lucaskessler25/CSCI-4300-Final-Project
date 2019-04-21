@@ -4,12 +4,12 @@
 	$id = $_SESSION['id'];
 	
 	$pdo = new PDO(
-		"mysql:host=localhost;dbname=fieldtofarm",
+		"mysql:host=localhost;dbname=fieldtotable",
 		'root',
 		''
 	);
 	
-	$sql = "SELECT description FROM userinfo WHERE ID = :id";
+	$sql = "SELECT name, description FROM userinfo WHERE ID = :id";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute([
 		'id' => $id,
@@ -17,14 +17,14 @@
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <head>
-	<title>Field to Farm - Signup</title>
+	<title>Field to Table - Edit Profile</title>
 	<meta charset="utf-8" />
 </head>
 <h1> EDIT PROFILE </h1>
 <form action="editprofile-submit.php" method="post" enctype="multipart/form-data" id="editProf">
 	<div style="margin-bottom:10px;">
 		<strong>Name:</strong>
-		<input type="text" name="name" maxlength="32">
+		<input type="text" name="name" maxlength="32" value="<?php echo $row['name'] ?>">
 	</div>
 	
 	<div style ="margin-bottom:10px;">

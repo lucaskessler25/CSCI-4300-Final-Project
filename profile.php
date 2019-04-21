@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<title>Field to Farm - Signup</title>
+	<title>Field to Table - Profile</title>
 	<meta charset="utf-8" />
 </head>
 <?php	
@@ -9,7 +9,7 @@
 	$id = $_SESSION['id'];
 	
 	$pdo = new PDO(
-		"mysql:host=localhost;dbname=fieldtofarm",
+		"mysql:host=localhost;dbname=fieldtotable",
 		'root',
 		''
 	);
@@ -21,7 +21,9 @@
 	]);
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-<h1> PROFILE </h1>
+<h1> YOUR PROFILE </h1>
 <button type='button' onclick='window.location.href="editprofile.php"'>Edit Profile</button>
-<p><?php echo 'id = ' . $id ?></p>
 <p><?php echo 'name = ' . $row['name'] ?></p>
+<p><?php echo 'description = ' . $row['description'] ?></p>
+<p><?php echo 'image = ' ?></p>
+<p><a href="index.php">Back to front page</a></p>

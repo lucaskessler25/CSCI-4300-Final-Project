@@ -2,12 +2,12 @@
 <html>
 	
 	<head>
-		<title>Field to Farm - Signup</title>
+		<title>Field to Table - Signup</title>
 	</head>
 
 	<body>
 		<div>
-			<h1> Field to Farm </h1>
+			<h1> Field to Table </h1>
 		</div>
 		
 		<form action="signup-submit.php" method="post">

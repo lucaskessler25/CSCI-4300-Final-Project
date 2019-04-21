@@ -1,12 +1,12 @@
 <head>
-	<title>Field to Farm - Signup</title>
+	<title>Field to Table - Signup</title>
 	<meta charset="utf-8" />
 </head>
 
 <?php
     //database details
 	$pdo = new PDO(
-		"mysql:host=localhost;dbname=fieldtofarm",
+		"mysql:host=localhost;dbname=fieldtotable",
 		'root',
 		''
 	);

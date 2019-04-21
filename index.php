@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-	<title>Field to Farm - Signup</title>
+	<title>Field to Table - Main Page</title>
 	<meta charset="utf-8" />
 </head>
 
@@ -9,7 +9,7 @@
 	session_start();
 	if(isset($_SESSION['id'])) {
 		$pdo = new PDO(
-			"mysql:host=localhost;dbname=fieldtofarm",
+			"mysql:host=localhost;dbname=fieldtotable",
 			'root',
 			''
 		);

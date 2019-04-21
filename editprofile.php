@@ -35,5 +35,6 @@
 		<strong> Upload image:</strong>
 		<input type="file" name="fileupload" value="fileupload" id="fileupload">
 	</div>
-	<input type="submit" value="Sign Up">
+	<input type="submit" value="Submit Edit">
 </form>
+<p><a href='profile.php'> Return to Profile Page </a></p>

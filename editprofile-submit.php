@@ -20,7 +20,11 @@
 	]);
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	
+	$fileToMove = $_FILES['fileupload']['tmp_name'];
+	$destination = "./Images/" . $_FILES['fileupload']['name'];
+	move_uploaded_file($fileToMove, $destination);
+	
 	echo '<h1> Profile updated! </h1>';
 	echo "<p> Congratulations on updating your profile information.
-		<a href='login.php'> click here </a> to go ahead and see your changes. </p>";	
+		<a href='profile.php'> click here </a> to go ahead and see your changes. </p>";	
 ?>

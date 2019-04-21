@@ -24,6 +24,6 @@
 <h1> YOUR PROFILE </h1>
 <p><?php echo 'name = ' . $row['name'] ?></p>
 <p><?php echo 'description = ' . $row['description'] ?></p>
-<p><?php echo 'image = ' ?></p>
+<p><?php echo 'image = ' . $row['piclocation'] ?></p>
 <button type='button' onclick='window.location.href="editprofile.php"'>Edit Profile</button>
 <p><a href="index.php">Back to front page</a></p>

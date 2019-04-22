@@ -23,7 +23,7 @@
 	}
 	else {
 		echo "<h1>Oops. Account does not exists!</h1>";
-		echo "<p><a href='login.html'>Let's try that again.</a></p>";
+		echo "<p><a href='login.php'>Let's try that again.</a></p>";
 	}
 ?>
 

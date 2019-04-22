@@ -22,8 +22,8 @@
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <h1> YOUR PROFILE </h1>
-<p><?php echo 'name = ' . $row['name'] ?></p>
-<p><?php echo 'description = ' . $row['description'] ?></p>
-<p><?php echo 'image = ' . $row['piclocation'] ?></p>
+<p><?php echo $row['name'] ?></p>
+<p><?php echo $row['description'] ?></p>
+<p><?php echo '<img src="/Images/' . $row["piclocation"] . '" alt="Your profile picture here!">'?></p>
 <button type='button' onclick='window.location.href="editprofile.php"'>Edit Profile</button>
 <p><a href="index.php">Back to front page</a></p>

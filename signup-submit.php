@@ -43,6 +43,11 @@
 			'id' => $row['ID'],
 		]);
 
+		$sql = "INSERT INTO `markers` (`ID`) VALUES (:id)";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([
+			'id' => $row['ID'],
+		]);
 		echo "<h1> User has been successfully created! </h1>";
 		echo "<p> Congratulations on creating a new account.
 		<a href='login.php'> click here </a> to go ahead and log in. </p>";		

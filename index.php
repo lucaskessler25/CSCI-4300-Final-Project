@@ -23,12 +23,13 @@
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		echo "<h1>Welcome, " . $row['Username'] . "!</h1>
-		<form class=\"example\" action=\"action_page.php\">
+		<form class=\"example\" action=\"search.php\">
 			<input type=\"text\" placeholder=\"Search..\" name=\"search\">
 			<button type=\"submit\"><i class=\"fa fa-search\"></i></button>
 		</form>
+		<p>
 		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>
-		<button type='button' onclick='window.location.href=\"profile.php\"'>View Profile</button>";
+		<button type='button' onclick='window.location.href=\"profile.php\"'>View Profile</button></p>";
 	} else {
 		echo '<h1>Welcome to Field to Table!</h1>
 		

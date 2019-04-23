@@ -1,56 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Simple Click Events</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="map"></div>
+<html> 
+<head> 
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+
     <script>
-      function initMap() {
-        var myLatlng = {lat: -25.363, lng: 131.044};
-
+    function initialize() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatlng
+            zoom: 6,
+            center: new google.maps.LatLng(40.1957,-76.0134),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         });
 
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title: 'Click to zoom'
-        });
+        var infowindow = new google.maps.InfoWindow();
+        var marker;
+        var location = {};
+        var markers = document.getElementsByTagName("marker");
 
-        /*map.addListener('center_changed', function() {
-          // 3 seconds after the center of the map has changed, pan back to the
-          // marker.
-          window.setTimeout(function() {
-            map.panTo(marker.getPosition());
-          }, 3000);
-        });*/
+        for (var i = 0; i < markers.length; i++) {
+            location = {
+                name : markers[i].getAttribute("html"),
+                address : markers[i].getAttribute("address"),
+                city : markers[i].getAttribute("city"),
+                state : markers[i].getAttribute("state"),
+                zip : markers[i].getAttribute("zip"),
+                pointlat : parseFloat(markers[i].getAttribute("lat")),
+                pointlng : parseFloat(markers[i].getAttribute("lng"))
+            };
 
-        marker.addListener('click', function() {
-          map.setZoom(8);
-          map.setCenter(marker.getPosition());
-        });
-      }
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(location.pointlat, location.pointlng),
+                map: map
+            });
+			
+			google.maps.event.addListener(marker, 'mouseover', (function(marker,location) {
+				return function() {
+					infowindow.setContent(location.name);
+					infowindow.open(map, marker);
+				};
+			})(marker, location));
+			
+            google.maps.event.addListener(marker, 'click', (function(marker,location) {
+                return function() {
+					window.location = "/index.php?name=" + location.name;
+                };
+            })(marker, location));
+        }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqq0fwojY763XT9oQx55S3xDUHD1KMUw&callback=initMap">
-    </script>
-  </body>
+</head> 
+<body>
+    <markers>
+	<?php 
+		#test
+        echo '<marker zip="17507" state="Pennsylvania" city="Bowmansville" address="1363 Bowmansville Rd." county="Lancaster" lng="-76.0134" lat="40.1957" html="Reading Equipment & Distribution (Bowmansville)"></marker>
+        <marker zip="18071" state="Pennsylvania" city="Palmerton" address="1226 Little Gap Road" county="Carbon" lng="-75.617" lat="40.8083" html="SMF"></marker>
+        <marker zip="18020" state="Pennsylvania" city="Bethlehem" address="2706 Brodhead Road" county="Northampton" lng="-75.3696" lat="40.6269" html="Versalift East, LLC (Specialty)"></marker>
+        <marker zip="19720" state="Delaware" city="New Castle" address="203 Pigeon Point Road" county="New Castle" lng="-75.5954" lat="39.6733" html="Auto Port, Inc."></marker>'
+	?>
+    </markers>
+
+    <div id="map" style="width: 500px; height: 400px;"></div>
+</body>
 </html>

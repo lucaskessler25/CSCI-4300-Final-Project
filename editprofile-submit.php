@@ -17,8 +17,8 @@
 			'id' => $_SESSION['id'],
 		]);
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		if(file_exists("./Images/" . $row['piclocation'])) {
-			unlink("./Images/" . $row['piclocation']);
+		if(file_exists("./Images/" . "USER" . $_SESSION['id'] . ".png")) {
+			unlink("./Images/" . "USER" . $_SESSION['id'] . ".png");
 		}
 		
 		$sql = "UPDATE userinfo SET description = :description, name = :name, piclocation = :piclocation WHERE ID = :id";
@@ -27,7 +27,7 @@
 			'id' => $_SESSION['id'],
 			'name' => $_POST['name'],
 			'description' => $_POST['description'],
-			'piclocation' => $_FILES['fileupload']['name'],
+			'piclocation' => "USER" . $_SESSION['id'] . ".png",
 		]);
 	} else {
 		$sql = "UPDATE userinfo SET description = :description, name = :name WHERE ID = :id";
@@ -40,11 +40,19 @@
 	}
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	
+	$sql = "UPDATE markers SET name = :name";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute([
+		'name' => $_POST['name'],
+	]);
+	
+	$row = $stmt->fetch(PDO::FETCH_ASSOC);
+	
 	$fileToMove = $_FILES['fileupload']['tmp_name'];
-	$destination = "./Images/" . $_FILES['fileupload']['name'];
+	$destination = "./Images/USER" . $_SESSION['id'] . ".png";
 	move_uploaded_file($fileToMove, $destination);
 	
 	echo '<h1> Profile updated! </h1>';
 	echo "<p> Congratulations on updating your profile information.
-		<a href='profile.php'> click here </a> to go ahead and see your changes. </p>";	
+		<a href='profile.php?search=" . $_SESSION['id'] . "'> click here </a> to go ahead and see your changes. </p>";	
 ?>

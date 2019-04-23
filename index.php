@@ -29,7 +29,7 @@
 		</form>
 		<p>
 		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>
-		<button type='button' onclick='window.location.href=\"profile.php\"'>View Profile</button></p>";
+		<button type='button' onclick='window.location.href=\"profile.php?search=" . $_SESSION['id'] . "\"'>View Profile</button></p>";
 	} else {
 		echo '<h1>Welcome to Field to Table!</h1>
 		

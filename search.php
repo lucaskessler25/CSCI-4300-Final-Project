@@ -25,7 +25,8 @@
                 state : markers[i].getAttribute("state"),
                 zip : markers[i].getAttribute("zip"),
                 pointlat : parseFloat(markers[i].getAttribute("lat")),
-                pointlng : parseFloat(markers[i].getAttribute("lng"))
+                pointlng : parseFloat(markers[i].getAttribute("lng")),
+				id : parseFloat(markers[i].getAttribute("id"))
             };
 
             marker = new google.maps.Marker({
@@ -42,7 +43,7 @@
 			
             google.maps.event.addListener(marker, 'click', (function(marker,location) {
                 return function() {
-					window.location = "/index.php?name=" + location.name;
+					window.location = "/profile.php?search=" + location.id;
                 };
             })(marker, location));
         }
@@ -54,14 +55,19 @@
 <body>
     <markers>
 	<?php 
-		#test
-        echo '<marker zip="17507" state="Pennsylvania" city="Bowmansville" address="1363 Bowmansville Rd." county="Lancaster" lng="-76.0134" lat="40.1957" html="Reading Equipment & Distribution (Bowmansville)"></marker>
-        <marker zip="18071" state="Pennsylvania" city="Palmerton" address="1226 Little Gap Road" county="Carbon" lng="-75.617" lat="40.8083" html="SMF"></marker>
-        <marker zip="18020" state="Pennsylvania" city="Bethlehem" address="2706 Brodhead Road" county="Northampton" lng="-75.3696" lat="40.6269" html="Versalift East, LLC (Specialty)"></marker>
-        <marker zip="19720" state="Delaware" city="New Castle" address="203 Pigeon Point Road" county="New Castle" lng="-75.5954" lat="39.6733" html="Auto Port, Inc."></marker>'
+	$pdo = new PDO(
+		"mysql:host=localhost;dbname=fieldtotable",
+		'root',
+		''
+	);
+	$sql = "SELECT * FROM markers";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute();
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        echo '<marker id="' . $row['ID'] . '" zip="' . $row['zip'] . '" state="' . $row['state'] .'" city="'. $row['city'] .'" address="' . $row['address'] . '" lng="' . $row['lng'] . '" lat="' . $row['lat'] . '" html="' . $row['name'] . '"></marker>';
 	?>
     </markers>
 
-    <div id="map" style="width: 500px; height: 400px;"></div>
+    <div id="map" style="width: 600px; height: 600px;"></div>
 </body>
 </html>

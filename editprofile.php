@@ -37,4 +37,4 @@
 	</div>
 	<input type="submit" value="Submit Edit">
 </form>
-<p><a href='profile.php'> Return to Profile Page </a></p>
+<p><a href=<?php echo "profile.php?search=" . $_SESSION['id']?>> Return to Profile Page </a></p>

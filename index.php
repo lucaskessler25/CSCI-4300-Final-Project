@@ -27,6 +27,7 @@
 			<input type=\"text\" placeholder=\"Search..\" name=\"search\">
 			<button type=\"submit\"><i class=\"fa fa-search\"></i></button>
 		</form>
+		<p><a href=\"displaymap.php\">Check out the map!</a></p>
 		<p>
 		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>
 		<button type='button' onclick='window.location.href=\"profile.php?search=" . $_SESSION['id'] . "\"'>View Profile</button></p>";
@@ -37,7 +38,7 @@
 			<input type="text" placeholder="Search.." name="search">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
-		
+		<p><a href="displaymap.php">Check out the map!</a></p>
 		<p>New User? <a href="signup.php">Sign up.</a> </p>
 		<p>Returning User? <a href="login.php">Log in.</a> </p>';
 	}

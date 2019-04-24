@@ -40,10 +40,11 @@
 	}
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	
-	$sql = "UPDATE markers SET name = :name";
+	$sql = "UPDATE markers SET name = :name WHERE id = :id";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute([
 		'name' => $_POST['name'],
+		'id' => $_SESSION['id'],
 	]);
 	
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);

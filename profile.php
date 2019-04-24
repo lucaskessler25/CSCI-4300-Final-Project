@@ -22,7 +22,7 @@
 	]);
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-<h1> YOUR PROFILE </h1>
+<h1> PROFILE </h1>
 <p><?php echo $row['name'] ?></p>
 <p><?php echo $row['description'] ?></p>
 <p><?php echo '<img src="/Images/' . $row["piclocation"] . '" alt="Your profile picture here!">'?></p>

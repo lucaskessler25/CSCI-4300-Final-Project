@@ -21,25 +21,27 @@
 			'id' => $_SESSION['id'],
 		]);
 		$row = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		echo "<h1>Welcome, " . $row['Username'] . "!</h1>
-		<form class=\"example\" action=\"search.php\">
-			<input type=\"text\" placeholder=\"Search..\" name=\"search\">
-			<button type=\"submit\"><i class=\"fa fa-search\"></i></button>
-		</form>
-		<p><a href=\"displaymap.php\">Check out the map!</a></p>
-		<p>
-		<button type='button' onclick='window.location.href=\"logout.php\"'>Log out</button>
-		<button type='button' onclick='window.location.href=\"profile.php?search=" . $_SESSION['id'] . "\"'>View Profile</button></p>";
+?>
+
+<?php
+		echo '<h1>Welcome, ' . $row['Username'] . '!</h1>';
 	} else {
-		echo '<h1>Welcome to Field to Table!</h1>
-		
+		echo '<h1>Welcome to Field to Table!</h1>';
+	}
+?>
 		<form class="example" action="search.php">
 			<input type="text" placeholder="Search.." name="search">
 			<button type="submit"><i class="fa fa-search"></i></button>
 		</form>
+		<p><a href="advanced-search.php">Advanced search</a></p>
 		<p><a href="displaymap.php">Check out the map!</a></p>
-		<p>New User? <a href="signup.php">Sign up.</a> </p>
+
+<?php
+	if(isset($_SESSION['id'])) {
+		echo '<button type=\'button\' onclick=\'window.location.href="logout.php"\'>Log out</button>
+			<button type=\'button\' onclick=\'window.location.href="profile.php?search=' . $_SESSION['id'] . '"\'>View Profile</button>';
+	} else {
+		echo '<p>New User? <a href="signup.php">Sign up.</a> </p>
 		<p>Returning User? <a href="login.php">Log in.</a> </p>';
 	}
 ?>

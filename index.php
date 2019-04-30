@@ -39,9 +39,9 @@
 <div class="jumbotron text-center">
 	<h1><b>Field to Table</b></h1> 
 	<p>A site for hunters to find meat processors</p> 
-	<form class="form-inline" action="search.php">
+	<form id="form" class="form-inline" action="search.php" method="get" role="form">
     <div class="input-group">
-      <input type="text" class="form-control" size="50" placeholder="Search for a specific processor..." required>
+      <input type="text" name="search" class="form-control" size="50" placeholder="Search for a specific processor..." required></input>
       <div class="input-group-btn">
         <button type="submit" style="background-color:brown" class="btn btn-danger">Search</button>
       </div>
@@ -53,8 +53,8 @@
 	</div>
 	<?php
 	if(isset($_SESSION['id'])) {
-		echo '<button type=\'button\' onclick=\'window.location.href="logout.php"\'>Log out</button>
-			<button type=\'button\' onclick=\'window.location.href="profile.php?search=' . $_SESSION['id'] . '"\'>View Profile</button>';
+		echo '<button type=\'button\' class="btn btn-primary btn-lg" onclick=\'window.location.href="logout.php"\'>Log out</button>
+			<button type=\'button\' class="btn btn-primary btn-lg" onclick=\'window.location.href="profile.php?search=' . $_SESSION['id'] . '"\'>View Profile</button>';
 	} else {
 		echo '<p>New User? <a href="signup.php" style="color: white"> Click here to sign up</a> </p>
 		<p>Returning User? <a href="login.php" style="color: white">Click here to log in</a> </p>';
@@ -63,6 +63,6 @@
 </div>
 <div class="container-fluid bg-grey text-center">
   <h2>Who are we?</h2>
-  <h4><strong>MISSION:</strong> A mission is a thing we have</h4>
-  <p><strong>VISION:</strong> We have been visioning
+  <h4><strong>Words:</strong> Words</h4>
+  <p><strong>Words:</strong> Words
 </div>

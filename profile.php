@@ -2,7 +2,11 @@
 
 <head>
 	<title>Field to Table - Profile</title>
-	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <?php	
 	session_start();
@@ -29,10 +33,13 @@
 	]);
 	$row2 = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
-<h1> PROFILE </h1>
+<style>
+		* {padding-left: 10px;}
+</style>
+<h1 style="text-align:center"> PROFILE </h1>
 <p><b>Name:</b> <?php echo $row['name'] ?></p>
 <p><b>Description:</b> <?php echo $row['description'] ?></p>
-<p><?php echo '<img src="/Images/' . $row["piclocation"] . '" alt="Your profile picture here!">'?></p>
+<p><?php echo '<img src="/Images/' . $row["piclocation"] . '" class="img-thumbnail" style="width: 50%; height: 50%;" alt="Your profile picture here!">'?></p>
 <h2>Location Information</h2>
 <p><b>Address:</b> <?php echo $row2['address'] ?></p>
 <p><b>City:</b> <?php echo $row2['city'] ?></p>
@@ -40,8 +47,9 @@
 <p><b>Zip:</b> <?php echo $row2['zip'] ?></p>
 <?php
 	if(isset($_SESSION['id']) && $_SESSION['id'] == $_GET['search'] )
-		echo "<button type='button' onclick='window.location.href=\"editprofile.php\"'>Edit Profile</button>
-			<button type='button' onclick='window.location.href=\"editmap.php\"'>Edit Map Information</button>"
+		echo "<button type='button' class='btn btn-primary btn-lg' onclick='window.location.href=\"editprofile.php\"'>Edit Profile</button>
+			<button type='button' class='btn btn-priamry btn-lg' onclick='window.location.href=\"editmap.php\"'>Edit Map Information</button>"
 ?>
+<h3> TEMPORARY </h3>
 <p><a href="index.php">To the front page</a></p>
 <p><a href="displaymap.php">To the map</a></p>

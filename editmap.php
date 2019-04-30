@@ -19,8 +19,18 @@
 <head>
 	<title>Field to Table - Edit Map</title>
 	<meta charset="utf-8" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<h1> EDIT MAP INFO </h1>
+<style>
+	* {
+		padding-left: 10px;
+	}
+</style>
+<h1 style="text-align: center"> EDIT MAP INFO </h1>
 <form action="editmap-submit.php" method="post" enctype="multipart/form-data" id="editProf">
 	<div style="margin-bottom:10px;">
 		<strong>Address:</strong>
@@ -51,6 +61,7 @@
 		<strong>Longitude:</strong>
 		<input type="text" name="lng" value="<?php echo $row['lng'] ?>">
 	</div>
-	<input type="submit" value="Submit Edit">
+	<button type="submit" style="background-color: gray; color: white;" class="btn">Submit Edit</button>
 </form>
-<p><a href=<?php echo "profile.php?search=" . $_SESSION['id']?>> Return to Profile Page </a></p>
+<h3>Temporary</h3>
+<p><a href=<?php echo "profile.php?search=" . $_SESSION['id']?>>Return to Profile Page </a></p>

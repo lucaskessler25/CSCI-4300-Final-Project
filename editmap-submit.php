@@ -23,7 +23,7 @@
 	]);
 	$row = $stmt->fetch(PDO::FETCH_ASSOC);
 	
-	echo '<h1> Map updated! </h1>';
+	echo '<h1 style="text-align: center"> Map updated! </h1>';
 	echo "<p> Congratulations on updating your map information.
 		<a href='profile.php?search=" . $_SESSION['id'] . "'> click here </a> to go ahead and see your changes. </p>";	
 ?>

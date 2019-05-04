@@ -2,7 +2,8 @@
 <html> 
 <head> 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
-    <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqq0fwojY763XT9oQx55S3xDUHD1KMUw&callback=initMap"
+ type="text/javascript"></script>
 
     <script>
     function initialize() {

@@ -24,6 +24,7 @@
 			<input type="checkbox" name="hindQuartersWhole" value="HQW"> Venison Smoked Hind Quarters (Whole)<br>
 			<input type="checkbox" name="hindQuartersSteaks" value="HQS"> Venison Smoked Hind Quarters (Steaks)<br>
 			<input type="checkbox" name="hindQuartersChipped" value="HQC"> Venison Smoked Hind Quarters (Chipped)<br>
+			How long do you mind driving? <input type="text" name="multiplier"> hours.<br>
 		<input type="submit" value="Submit" style="margin-top: 10px">
 		</fieldset>
 		</form>

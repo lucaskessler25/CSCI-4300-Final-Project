@@ -8,10 +8,16 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqq0fwojY763XT9oQx55S3xDUHD1KMUw&callback=initMap"
+ type="text/javascript"></script>
 	</head>
 	<style>
 	* {
 			margin-left: 10px;
+	}
+	
+	input {
+		margin-top: 10px;
 	}
 	</style>
 	<body>
@@ -30,13 +36,28 @@
 			<input type="checkbox" name="slimJims" value="slimJims"> Venison Slim Jims<br>
 			<input type="checkbox" name="imiBacon" value="imiBacon"> Venison Imitation Bacon<br>
 			<input type="checkbox" name="jerky" value="jerky"> Venison Jerky<br>
-			<input type="checkbox" name="hindQuartersWhole" value="HQW"> Venison Smoked Hind Quarters (Whole)<br>
-			<input type="checkbox" name="hindQuartersSteaks" value="HQS"> Venison Smoked Hind Quarters (Steaks)<br>
-			<input type="checkbox" name="hindQuartersChipped" value="HQC"> Venison Smoked Hind Quarters (Chipped)<br>
-			How long do you mind driving? <input type="text" name="multiplier"> hours.<br>
+			<input type="checkbox" name="HQW" value="HQW"> Venison Smoked Hind Quarters (Whole)<br>
+			<input type="checkbox" name="HQS" value="HQS"> Venison Smoked Hind Quarters (Steaks)<br>
+			<input type="checkbox" name="HQC" value="HQC"> Venison Smoked Hind Quarters (Chipped)<br>
+			Current Latitude: <input id= "lat" type="text" name="lat"><br>
+			Current Longitude: <input id="lng" type="text" name="lng"><br>
 		<input type="submit" value="Submit" style="margin-top: 10px">
 		</fieldset>
-		</form>
+		</form><br>
 		<p><a href="index.php">Back to front page</a></p>
 	</body>
+	<div id="map"></div>
+	<script>
+	function initialize() {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+					document.getElementById('lat').value = position.coords.latitude,
+					document.getElementById('lng').value = position.coords.longitude
+			}, function() {
+				handleLocationError(true, infowWindow, map.getCenter());
+			});
+		} else { handleLocationError(false, infowWindow, map.getCenter()); }	
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 </html>

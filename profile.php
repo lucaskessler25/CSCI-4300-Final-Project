@@ -32,6 +32,14 @@
 		'id' => $id,
 	]);
 	$row2 = $stmt->fetch(PDO::FETCH_ASSOC);
+	
+	$sql = "SELECT * FROM options WHERE ID = :id";
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute([
+		'id' => $id,
+	]);
+	$row3 = $stmt->fetch(PDO::FETCH_ASSOC);
+	
 ?>
 <style>
 		* {padding-left: 10px;}
@@ -45,10 +53,62 @@
 <p><b>City:</b> <?php echo $row2['city'] ?></p>
 <p><b>State:</b> <?php echo $row2['state'] ?></p>
 <p><b>Zip:</b> <?php echo $row2['zip'] ?></p>
+<h2>Options</h2>
+<table class="table table-striped table-bordered">
+	<tr>
+		<th scope="col">Type</th>
+		<th scope="col">Available? (Y/N)</th>
+	</tr>
+	<tr>
+		<td>Cube</td>
+		<td><?php echo $row3['cube']?></td>
+	</tr>
+	<tr>
+		<td>Kielbasa</td>
+		<td><?php echo $row3['kielbasa']?></td>
+	</tr>
+	<tr>
+		<td>Salami</td>
+		<td><?php echo $row3['salami']?></td>
+	</tr>
+	<tr>
+		<td>Summer Sausage</td>
+		<td><?php echo $row3['sumSausage']?></td>
+	</tr>
+	<tr>
+		<td>Bologna</td>
+		<td><?php echo $row3['bologna']?></td>
+	</tr>
+	<tr>
+		<td>ImiBacon</td>
+		<td><?php echo $row3['imiBacon']?></td>
+	</tr>
+	<tr>
+		<td>Slim Jims</td>
+		<td><?php echo $row3['slimJims']?></td>
+	</tr>
+	<tr>
+		<td>Jerky</td>
+		<td><?php echo $row3['jerky']?></td>
+	</tr>
+	<tr>
+		<td>Smoked Hind Quarters (Whole)</td>
+		<td><?php echo $row3['HQW']?></td>
+	</tr>
+	<tr>
+		<td>Smoked Hind Quarters (Steaks)</td>
+		<td><?php echo $row3['HQS']?></td>
+	</tr>
+	<tr>
+		<td>Smoked Hind Quarters (Chipped)</td>
+		<td><?php echo $row3['HQC']?></td>
+	</tr>
+</table>
 <?php
 	if(isset($_SESSION['id']) && $_SESSION['id'] == $_GET['search'] )
 		echo "<button type='button' class='btn btn-primary btn-lg' onclick='window.location.href=\"editprofile.php\"'>Edit Profile</button>
-			<button type='button' class='btn btn-priamry btn-lg' onclick='window.location.href=\"editmap.php\"'>Edit Map Information</button>"
+			<button type='button' class='btn btn-priamry btn-lg' onclick='window.location.href=\"editmap.php\"'>Edit Map Information</button>
+			<button type='button' class='btn btn-primary btn-lg' onclick='window.location.href=\"editmenu.php\"'>Edit Menu Information</button>"
 ?>
 <h3> TEMPORARY </h3>
 <p><a href="index.php">To the front page</a></p>

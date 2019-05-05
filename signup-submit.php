@@ -42,6 +42,12 @@
 		$stmt->execute([
 			'id' => $row['ID'],
 		]);
+		
+		$sql = "INSERT INTO `options` (`ID`, `cube`, `kielbasa`, `salami`, `sumSausage`, `bologna`, `imiBacon`, `slimJims`, `jerky`, `HQW`, `HQS`, `HQC`) VALUES (:id, 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N')";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute([
+			'id' => $row['ID'],
+		]);
 
 		$sql = "INSERT INTO `markers` (`ID`) VALUES (:id)";
 		$stmt = $pdo->prepare($sql);

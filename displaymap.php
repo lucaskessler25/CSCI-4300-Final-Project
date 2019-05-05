@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsqq0fwojY763XT9oQx55S3xDUHD1KMUw&callback=initMap"
  type="text/javascript"></script>
-
+</head>
     <script>
     function initialize() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -12,7 +12,18 @@
             center: new google.maps.LatLng(42.877742,-97.380979),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-
+		
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position) {
+				var pos = {
+					lat: position.coords.latitude,
+					lng: position.coords.longitude
+				};
+				map.setCenter(pos);
+			}, function() {
+				handleLocationError(true, infowWindow, map.getCenter());
+			});
+		} else { handleLocationError(false, infowWindow, map.getCenter()); }
         var infowindow = new google.maps.InfoWindow();
         var marker;
         var location = {};
@@ -68,8 +79,7 @@
         echo '<marker id="' . $row['ID'] . '" zip="' . $row['zip'] . '" state="' . $row['state'] .'" city="'. $row['city'] .'" address="' . $row['address'] . '" lng="' . $row['lng'] . '" lat="' . $row['lat'] . '" html="' . $row['name'] . '"></marker>';
 	?>
     </markers>
-
-    <div id="map" style="width: 600px; height: 600px;"></div>
+    <div id="map" style="width: 100%; height: 600px;"></div>
 	<p><a href="index.php">Back to front page</a></p>
 </body>
 </html>

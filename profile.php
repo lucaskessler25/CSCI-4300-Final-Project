@@ -45,6 +45,7 @@
 		* {padding-left: 10px;}
 </style>
 <h1 style="text-align:center"> PROFILE </h1>
+<h2>Basic Information</h2>
 <p><b>Name:</b> <?php echo $row['name'] ?></p>
 <p><b>Description:</b> <?php echo $row['description'] ?></p>
 <p><?php echo '<img src="/Images/' . $row["piclocation"] . '" class="img-thumbnail" style="width: 50%; height: 50%;" alt="Your profile picture here!">'?></p>
@@ -110,6 +111,6 @@
 			<button type='button' class='btn btn-priamry btn-lg' onclick='window.location.href=\"editmap.php\"'>Edit Map Information</button>
 			<button type='button' class='btn btn-primary btn-lg' onclick='window.location.href=\"editmenu.php\"'>Edit Menu Information</button>"
 ?>
-<h3> TEMPORARY </h3>
+
 <p><a href="index.php">To the front page</a></p>
 <p><a href="displaymap.php">To the map</a></p>

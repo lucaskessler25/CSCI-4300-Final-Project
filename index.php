@@ -37,8 +37,10 @@
   </style>
 </head>
 <div class="jumbotron text-center">
-	<h1><b>Field to Table</b></h1> 
-	<p>A site for hunters to find meat processors</p> 
+	<a href="index.php">
+        <img class="center" src="Images/ftf.png" alt="logo" width="500" height="500">
+    </a>
+	<h3><strong>A site for hunters to find meat processors</strong></h3> 
 	<form id="form" class="form-inline" action="search.php" method="get" role="form">
     <div class="input-group">
       <input type="text" name="search" class="form-control" size="50" placeholder="Search for a specific processor..." required></input>
@@ -61,7 +63,7 @@
 	}
 ?>
 </div>
-<div class="container-fluid bg-grey text-center">
+<div class="container-fluid text-center">
   <h2>Who are we?</h2>
   <h4><strong>Members:</strong> Lucas Kessler, Will McDaniel, Luke Nguyen</h4>
   <p><strong>What is this?:</strong> This serves to bridge the gap between processors and technology. Currently,

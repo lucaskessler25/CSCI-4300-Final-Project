@@ -73,7 +73,7 @@
 		'root',
 		''
 	);
-	$sql = "SELECT * FROM options WHERE ";
+	$sql = "SELECT ID FROM options WHERE ";
 	if(isset($_POST['cube']))
 		$sql = $sql . " cube = 'Y' OR";
 	if(isset($_POST['kielbasa']))
@@ -104,12 +104,12 @@
 		((lat > :lat - .8) AND (lat < :lat + .8) AND (lng > :lng - .8) AND (lng < :lng + .8))";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute([
+			'lat' => $_POST['lat'],
+			'lng' => $_POST['lng'],
 			'id' => $row['ID'],
-			'lat' => floatval($_POST['lat']),
-			'lng' => floatval($_POST['lng']),
 		]);
-		while($row2 = $stmt->fetch(PDO::FETCH_ASSOC)) 
-			echo '<marker id="' . $row2['ID'] . '" zip="' . $row2['zip'] . '" state="' . $row2['state'] .'" city="'. $row2['city'] .'" address="' . $row2['address'] . '" lng="' . $row2['lng'] . '" lat="' . $row2['lat'] . '" html="' . $row2['name'] . '"></marker>';
+		$row2 = $stmt->fetch(PDO::FETCH_ASSOC);
+		echo '<marker id="' . $row2['ID'] . '" zip="' . $row2['zip'] . '" state="' . $row2['state'] .'" city="'. $row2['city'] .'" address="' . $row2['address'] . '" lng="' . $row2['lng'] . '" lat="' . $row2['lat'] . '" html="' . $row2['name'] . '"></marker>';
 	}
 ?>
     </markers>

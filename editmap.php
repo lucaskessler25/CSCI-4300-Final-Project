@@ -63,5 +63,4 @@
 	</div>
 	<button type="submit" style="background-color: gray; color: white;" class="btn">Submit Edit</button>
 </form>
-<h3>Temporary</h3>
 <p><a href=<?php echo "profile.php?search=" . $_SESSION['id']?>>Return to Profile Page </a></p>

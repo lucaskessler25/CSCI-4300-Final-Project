@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-	
+	<?php session_start(); $id = $_SESSION['id']?>
 	<head>
 		<title>Field to Table - Edit Menu</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -36,6 +36,6 @@
 		<input type="submit" value="Submit" style="margin-top: 10px">
 		</fieldset>
 		</form><br>
-		<p><a href="index.php">Back to front page</a></p>
+		<p><a href=<?php echo "profile.php?search=" . $_SESSION['id']?>>Return to Profile Page </a></p>
 	</body>
 </html>

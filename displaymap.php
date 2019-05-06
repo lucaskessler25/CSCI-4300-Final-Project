@@ -75,8 +75,9 @@
 	$sql = "SELECT * FROM markers";
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute();
-	while($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
-        echo '<marker id="' . $row['ID'] . '" zip="' . $row['zip'] . '" state="' . $row['state'] .'" city="'. $row['city'] .'" address="' . $row['address'] . '" lng="' . $row['lng'] . '" lat="' . $row['lat'] . '" html="' . $row['name'] . '"></marker>';
+	while($row = $stmt->fetch(PDO::FETCH_ASSOC))
+		if($row['lat'] != 0 && $row['lng'] != 0)
+			echo '<marker id="' . $row['ID'] . '" zip="' . $row['zip'] . '" state="' . $row['state'] .'" city="'. $row['city'] .'" address="' . $row['address'] . '" lng="' . $row['lng'] . '" lat="' . $row['lat'] . '" html="' . $row['name'] . '"></marker>';
 	?>
     </markers>
     <div id="map" style="width: 100%; height: 600px;"></div>

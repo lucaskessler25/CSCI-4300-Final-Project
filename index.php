@@ -66,7 +66,7 @@
 <div class="container-fluid text-center">
   <h2>Who are we?</h2>
   <h4><strong>Members:</strong> Lucas Kessler, Will McDaniel, Luke Nguyen</h4>
-  <p><strong>What is this?:</strong> This serves to bridge the gap between processors and technology. Currently,
+  <p><strong>What is this?:</strong> This serves to bridge the gap between processors and current advertising technology. Currently,
   processors have typically not been up to date on their internet presense, causing them to fall behind in
   advertising world. With this website, processors can create profiles and put information in about themselves.
   Users looking to use a processor's service can then search to find processors around them that process meat in
